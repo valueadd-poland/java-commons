@@ -21,8 +21,7 @@ import static java.lang.String.format;
 
 @Slf4j
 @RequiredArgsConstructor
-public
-class VarmiSession implements Closeable {
+public class VarmiSession implements Closeable {
 
     private final VarmiTransport transport;
 
