@@ -1,17 +1,25 @@
 package pl.valueadd.permission;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import java.io.Serializable;
-import lombok.NoArgsConstructor;
-
 import java.io.Serializable;
 import java.util.Optional;
 
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Permission implements Serializable {
+    public Permission(boolean can, String message) {
+        this.can = can;
+        this.message = message;
+    }
+
+    public Permission() {
+    }
+
+    public boolean isCan() {
+        return this.can;
+    }
+
+    public String getMessage() {
+        return this.message;
+    }
+
     public interface Next {
         Permission get();
     }
