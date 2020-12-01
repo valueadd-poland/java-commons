@@ -1,0 +1,12 @@
+version: "3.0"
+
+services:
+  rabbitmq:
+    container_name: rmi_rabbit
+    image: bitnami/rabbitmq:3.8
+    environment:
+      RABBITMQ_USERNAME: rabbit
+      RABBITMQ_PASSWORD: rabbit
+    ports:
+      - 4368:4369
+      - 5671:5672
