@@ -1,6 +1,7 @@
 package pl.valueadd.permission;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.Optional;
 
 public class Permission implements Serializable {
@@ -97,5 +98,27 @@ public class Permission implements Serializable {
         if(this.can){
             c.exec();
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Permission that = (Permission) o;
+        return can == that.can &&
+                Objects.equals(message, that.message);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(can, message);
+    }
+
+    @Override
+    public String toString() {
+        return "Permission{" +
+                "can=" + can +
+                ", message='" + message + '\'' +
+                '}';
     }
 }

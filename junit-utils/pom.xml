@@ -2,27 +2,30 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-    <artifactId>permission</artifactId>
-    <groupId>pl.valueadd</groupId>
-    <version>1.0.26.RELEASE</version>
-
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>pl.valueadd</groupId>
+    <artifactId>junit-utils</artifactId>
+    <version>1.0.26.RELEASE</version>
     <dependencies>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>5.2.7.RELEASE</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.7.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
     <distributionManagement>
         <repository>
             <id>bintray-valueadd-maven</id>
             <name>valueadd-maven</name>
-            <url>https://api.bintray.com/maven/valueadd/maven/permission/;publish=1</url>
+            <url>https://api.bintray.com/maven/valueadd/maven/junit-utils/;publish=1</url>
         </repository>
     </distributionManagement>
     <build>

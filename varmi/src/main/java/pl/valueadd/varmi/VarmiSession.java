@@ -67,7 +67,11 @@ public class VarmiSession implements Closeable {
     }
 
     private String getId(Object object) {
-        return object.getClass().getGenericInterfaces()[0].getTypeName();
+        var clazz = object.getClass();
+        while(clazz.getSimpleName().contains("Spring")){
+            clazz = clazz.getSuperclass();
+        }
+        return clazz.getGenericInterfaces()[0].getTypeName();
     }
 
     @SneakyThrows

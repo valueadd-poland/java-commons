@@ -1,7 +1,7 @@
 package pl.valueadd.permission;
 
 
-class PermissionValidator {
+public class PermissionValidator {
 
     public boolean validate(Permission permission) {
         if (permission.isCan()) {

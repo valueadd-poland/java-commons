@@ -1,6 +1,8 @@
 package pl.valueadd.varmi.spring.annotation;
 
 import org.springframework.context.annotation.Import;
+import pl.valueadd.varmi.spring.VarmiAutoConfiguration;
+import pl.valueadd.varmi.spring.VarmiClientsRegistrar;
 import pl.valueadd.varmi.spring.VarmiServerRegistrar;
 
 import java.lang.annotation.Inherited;
@@ -19,7 +21,10 @@ import java.lang.annotation.RetentionPolicy;
  * @see pl.valueadd.varmi.spring.VarmiServerRegistrar
  */
 @Inherited
-@Import(VarmiServerRegistrar.class)
+@Import({
+        VarmiServerRegistrar.class,
+        VarmiAutoConfiguration.class
+})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface VarmiServers {
     /**

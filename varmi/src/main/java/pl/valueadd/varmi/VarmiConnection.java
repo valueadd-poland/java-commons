@@ -1,13 +1,11 @@
 package pl.valueadd.varmi;
 
 import lombok.RequiredArgsConstructor;
+import pl.valueadd.varmi.exception.InvocationException;
 import pl.valueadd.varmi.exception.NotPublicException;
 
 import java.io.Closeable;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.lang.reflect.Proxy;
+import java.lang.reflect.*;
 
 @RequiredArgsConstructor
 public class VarmiConnection implements Closeable {
@@ -45,7 +43,11 @@ public class VarmiConnection implements Closeable {
 
     private class RrmiInvocationHandler implements InvocationHandler {
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-            return session.handle(proxy, method.getName(), args);
+            var ret = session.handle(proxy, method.getName(), args);
+            if(ret instanceof InvocationTargetException){
+                throw ((InvocationTargetException) ret).getTargetException();
+            }
+            return ret;
         }
     }
 }
